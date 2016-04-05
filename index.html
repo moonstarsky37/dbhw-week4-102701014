@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- http://jquery.com/download/ -->
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <script src="js/main.js"></script>
+  <style type="text/css" src="css/css.css"></style>
+  <title>高雄景點一覽</title>
+
+
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">高雄</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="container">
+      <br>
+      <br>
+      <h1>高雄景點</h1>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div id="content" class="row"></div>
+    <div class="sk-wandering-cubes">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+    </div>
+    <hr>
+    <footer>
+      <p>&copy; 2016 http://data.kaohsiung.gov.tw/Opendata</p>
+    </footer>
+  </div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    getData(function (err,data) {
+      if(err) {
+        console.log(err);
+      } else{
+        var dataList = JSON.parse(data);//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+        console.log(data);
+        var HTMLdataList = dataList.map(function(divdata){
+
+          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><h2>"+divdata.Name+"</h2>";
+          var items = "";
+          for (var key in divdata){
+            if(key=="Name" || key=="Toldescribe" || key=="Description" || key=="Tel" || key=="Add"){
+              items = items +"<li class='list-group-item'>"+key+":"+divdata[key]+"</li>";
+            }
+          }//end for key in divdata
+          var HTMLString = HTMLString+items+"</ul></p></div>";
+          return HTMLString;
+        });//end map fcn
+        HTMLdataList.forEach(function (html) {
+          $(html).appendTo("#content");
+        });//end for each
+        $('.sk-cube-grid').css('display','none');
+      }
+    });//end getData fcn
+  });//end ready fcn
+</script>
+
+
+<!--
+key!="Id" && key!="Picture1" && key!="Zone" && key!="Travellinginfo" && key!="Remarks" && key!="資料序號Seq" && key!="Website" && key!="Level"
+  <div class="row">
+    <div class="col-xs-3 "></div>
+    <div class="col-xs-9">
+      <h2><span class="glyphicon glyphicon-option-horizontal"></span> article title</h2>
+      <p>...first chapter...</p>
+      <img class="img-responsive" src="https://www.petfinder.com/wp-content/uploads/2012/11/140272627-grooming-needs-senior-cat-632x475.jpg" />
+      <p>...second chapter你好</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-4"><button>Click A</button></div>
+    <div class="col-xs-4"><button class="btn btn-default">Click B</button></div>
+    <div class="col-xs-4"><button>Click C</button></div>
+  </div>class='col-md-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'
+-->
+</body>
+</html>
