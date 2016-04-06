@@ -66,10 +66,13 @@
         console.log(data);
         var HTMLdataList = dataList.map(function(divdata){
 
-          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"<span class='caret'></span></a>";
+          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"";
           var items = "<ul class='dropdown-menu'>";
           for (var key in divdata){
-            if(key=="Name" || key=="Description" || key=="Tel" || key=="Add"){
+            if(key=="Picture1"){
+              HTMLString = HTMLString + "<img src='"+divdata[key]+"'width='200' height='200'><span class='caret'></span></a>";
+            }
+            if(key=="Description" || key=="Tel" || key=="Add"){
               items = items +"<li><a href='#'>"+key+":"+divdata[key]+"</a></li>";
             }
           }//end for key in divdata
