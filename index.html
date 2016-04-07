@@ -66,7 +66,7 @@
         console.log(data);
         var HTMLdataList = dataList.map(function(divdata){
         var location = "https://www.google.com.tw/maps/place/" +divdata.Name;
-          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><a href='https://www.google.com.tw/maps/place/"+divdata.Name+"' target='_blank' style='text-align: center'><br><img src='http://i.stack.imgur.com/LU782.png' width='30' height='30'></a><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"";
+          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><a href='https://www.google.com.tw/maps/place/"+divdata.Name+"' target='_blank' style='text-align: center'><br><img src='http://i.stack.imgur.com/LU782.png' width='30' height='30'></a><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"<br>";
           var items = "<ul class='dropdown-menu'>";
 
           /*
