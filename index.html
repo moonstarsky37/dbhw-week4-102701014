@@ -68,19 +68,7 @@
         var location = "https://www.google.com.tw/maps/place/" +divdata.Name;
           var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><a href='https://www.google.com.tw/maps/place/"+divdata.Name+"' target='_blank' style='text-align: center'><br><img src='http://i.stack.imgur.com/LU782.png' width='30' height='30'></a><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"<br>";
           var items = "<ul class='dropdown-menu'>";
-
-          /*
-          var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"";
-          var items = "<ul class='dropdown-menu'>";
           for (var key in divdata){
-            if(key=="Name"){
-              HTMLString = HTMLString + "<a href='https://www.google.com.tw/maps/place/"+divdata[key]+"' target='_blank'><img src='http://i.stack.imgur.com/LU782.png' width='30' height='30'></a>";
-            }
-          }
-          */
-
-          for (var key in divdata){
-
             if(key=="Picture1"){
               HTMLString = HTMLString + "<img src='"+divdata[key]+"'width='200' height='200'><span class='caret'></span></a>";
             }
@@ -100,24 +88,5 @@
   });//end ready fcn
 </script>
 
-
-<!--
-key!="Id" && key!="Picture1" && key!="Zone" && key!="Travellinginfo" && key!="Remarks" && key!="資料序號Seq" && key!="Website" && key!="Level"
-  <div class="row">
-    <div class="col-xs-3 "></div>
-    <div class="col-xs-9">
-      <h2><span class="glyphicon glyphicon-option-horizontal"></span> article title</h2>
-      <p>...first chapter...</p>
-      <img class="img-responsive" src="https://www.petfinder.com/wp-content/uploads/2012/11/140272627-grooming-needs-senior-cat-632x475.jpg" />
-      <p>...second chapter你好</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-4"><button>Click A</button></div>
-    <div class="col-xs-4"><button class="btn btn-default">Click B</button></div>
-    <div class="col-xs-4"><button>Click C</button></div>
-  </div>class='col-md-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'
--->
 </body>
 </html>
