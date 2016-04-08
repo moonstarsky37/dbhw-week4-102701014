@@ -24,36 +24,36 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">高雄</a>
-      </div>
-    </div>
-  </nav>
-
-  <div class="jumbotron">
-    <div class="container">
-      <br>
-      <br>
-      <h1>高雄景點</h1>
-      <h3>為解決跨<a href="http://jimmy319.blogspot.tw/2013/09/javascript-xhr-cross-domain-request-is.html" target="_blank">前端跨網域存取問題</a>，請在Chrome瀏覽器下執行Allow-Control-Allow-Origin</h3>
-       <h3>可點此下載Chrome Extension Allow-Control-Allow-Origin<a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=zh-TW" target="_blank"><img src="https://ssl.gstatic.com/chrome/webstore/images/thumb.png" style="font-size:30px;"></a></h3>
-    </div>
-  </div>
-
-
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
-    <div id="content" class="row"></div>
-    <div class="sk-wandering-cubes">
-      <div class="sk-cube sk-cube1"></div>
-      <div class="sk-cube sk-cube2"></div>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">高雄</a>
     </div>
-    <hr>
-    <footer>
-      <p>&copy; 2016 http://data.kaohsiung.gov.tw/Opendata</p>
-    </footer>
   </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <br>
+    <br>
+    <h1>高雄景點</h1>
+    <h3>為解決跨<a href="http://jimmy319.blogspot.tw/2013/09/javascript-xhr-cross-domain-request-is.html" target="_blank">前端跨網域存取問題</a>，請在Chrome瀏覽器下執行Allow-Control-Allow-Origin</h3>
+    <h3>可點此下載Chrome Extension Allow-Control-Allow-Origin<a href="https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=zh-TW" target="_blank"><img src="https://ssl.gstatic.com/chrome/webstore/images/thumb.png" style="font-size:30px;"></a></h3>
+  </div>
+</div>
+
+
+<div class="container">
+  <div id="content" class="row"></div>
+  <div class="sk-wandering-cubes">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+  </div>
+  <hr>
+  <footer>
+    <p>&copy; 2016 http://data.kaohsiung.gov.tw/Opendata</p>
+  </footer>
+</div>
 
 
 <script type="text/javascript">
@@ -65,7 +65,7 @@
         var dataList = JSON.parse(data);//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
         console.log(data);
         var HTMLdataList = dataList.map(function(divdata){
-        var location = "https://www.google.com.tw/maps/place/" +divdata.Name;
+          var location = "https://www.google.com.tw/maps/place/" +divdata.Name;
           var HTMLString = "<div class='col-xs-4 drop-"+(Math.round(Math.random()*10000%3)+1)+"'><ul class='nav nav-tabs'><a href='https://www.google.com.tw/maps/place/"+divdata.Name+"' target='_blank' style='text-align: center'><br><img src='http://i.stack.imgur.com/LU782.png' width='30' height='30'></a><li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>"+divdata.Name+"<br>";
           var items = "<ul class='dropdown-menu'>";
           for (var key in divdata){
@@ -73,7 +73,7 @@
               HTMLString = HTMLString + "<img src='"+divdata[key]+"'width='200' height='200'><span class='caret'></span></a>";
             }
             if(key=="Description" || key=="Tel" || key=="Add"){
-              items = items +"<li class='list-group-item'><a href='#'>"+key+":"+divdata[key]+"</a></li>";
+              items = items +"<li class='list-group-item'><p class='detail' '>"+key+":"+divdata[key]+"</p></li>";
             }
           }//end for key in divdata
           var HTMLString = HTMLString+items+"</ul></p></div>";
